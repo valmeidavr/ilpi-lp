@@ -100,14 +100,11 @@ body {
 }
 
 .hero-gradient {
-  background: radial-gradient(ellipse at 20% 50%, #1a5298 0%, transparent 60%),
-              radial-gradient(ellipse at 80% 20%, #1e5faa 0%, transparent 50%),
-              radial-gradient(ellipse at 60% 80%, #0d2d55 0%, transparent 60%),
-              linear-gradient(180deg, #0a1e3d 0%, #15447d 35%, #1a5298 65%, #0e3363 100%);
+  background: linear-gradient(170deg, #15447d 0%, #1a5298 40%, #1e5faa 65%, #15447d 100%);
 }
 
 .donation-gradient {
-  background: linear-gradient(135deg, #F0F4F8 0%, #E1E8F0 50%, #D0DAE5 100%);
+  background: linear-gradient(135deg, #e8f1fd 0%, #d0e2fa 50%, #b8d4f8 100%);
 }
 
 /* Custom scrollbar */
