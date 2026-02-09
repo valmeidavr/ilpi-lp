@@ -59,8 +59,8 @@ export default function Hero() {
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://www.aapvr.org.br/wp-content/uploads/2022/05/instituto_longa_permanencia.png"
-                alt="Idoso sorrindo"
+                src="https://www.casarepouso.com.br/imagens/asilo-de-idoso-com-equipe-de-medicos-preco.jpg"
+                alt="Idosos da instituição"
                 className="w-full h-full object-cover"
               />
             </div>

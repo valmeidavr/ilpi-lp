@@ -94,8 +94,16 @@ export default function About() {
             </blockquote>
           </div>
 
-          {/* Right column - Team */}
-          <div>
+          {/* Right column - Image + Team */}
+          <div className="space-y-8">
+            <div className="rounded-3xl overflow-hidden shadow-xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.aapvr.org.br/wp-content/uploads/2022/05/instituto_longa_permanencia.png"
+                alt="Idosos da instituição"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
             <div className="bg-gradient-to-br from-secondary to-primary rounded-3xl p-6 sm:p-8 lg:p-10 text-white">
               <h3 className="text-2xl font-bold mb-2">
                 Equipe Especializada
