@@ -11,6 +11,7 @@ import {
   LogOut,
   Menu,
   X,
+  UserCircle,
 } from "lucide-react";
 
 const navItems = [
@@ -27,6 +28,7 @@ export default function AdminLayout({
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
   // Don't show layout on login page
   if (pathname === "/admin/login") {
@@ -39,6 +41,7 @@ export default function AdminLayout({
       .then((r) => r.json())
       .then((data) => {
         if (data.name) setUserName(data.name);
+        if (data.email) setUserEmail(data.email);
       })
       .catch(() => {});
   }, []);
@@ -77,7 +80,6 @@ export default function AdminLayout({
               </div>
               <div>
                 <p className="font-bold text-gray-900 text-sm">ILPI Admin</p>
-                <p className="text-[10px] text-gray-400">{userName}</p>
               </div>
             </div>
             <button
@@ -113,17 +115,33 @@ export default function AdminLayout({
           })}
         </nav>
 
-        <div className="p-3 border-t border-gray-100">
+        {/* User info + logout */}
+        <div className="p-3 border-t border-gray-100 space-y-2">
+          <div className="flex items-center gap-3 px-3 py-2">
+            <div className="w-9 h-9 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+              <UserCircle className="w-6 h-6 text-gray-500" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-gray-900 truncate">
+                {userName || "Admin"}
+              </p>
+              <p className="text-[11px] text-gray-400 truncate">
+                {userEmail}
+              </p>
+            </div>
+          </div>
+
           <button
             onClick={handleLogout}
-            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors"
+            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
           >
             <LogOut className="w-4 h-4" />
-            Sair
+            Sair da conta
           </button>
+
           <Link
             href="/"
-            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors mt-1"
+            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"
           >
             Ver site
           </Link>
@@ -132,15 +150,36 @@ export default function AdminLayout({
 
       {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Top bar (mobile) */}
-        <header className="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3">
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="p-1 text-gray-600"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
-          <p className="font-bold text-gray-900 text-sm">ILPI Admin</p>
+        {/* Top bar */}
+        <header className="bg-white border-b border-gray-200 px-4 lg:px-8 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="p-1 text-gray-600 lg:hidden"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+            <p className="font-bold text-gray-900 text-sm lg:hidden">ILPI Admin</p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:block text-right">
+              <p className="text-sm font-medium text-gray-700">
+                {userName || "Admin"}
+              </p>
+              <p className="text-[11px] text-gray-400">{userEmail}</p>
+            </div>
+            <div className="w-9 h-9 bg-gray-200 rounded-full flex items-center justify-center">
+              <UserCircle className="w-6 h-6 text-gray-500" />
+            </div>
+            <button
+              onClick={handleLogout}
+              title="Sair"
+              className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
+          </div>
         </header>
 
         <main className="flex-1 overflow-auto">{children}</main>

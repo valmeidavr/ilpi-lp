@@ -21,8 +21,8 @@ export default function Hero({ content }: HeroProps) {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-34 lg:pt-40 pb-16 text-left">
-        <div className="max-w-2xl">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-34 lg:pt-40 pb-16 text-center lg:text-left">
+        <div className="max-w-2xl mx-auto lg:mx-0">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8 mt-8 sm:mt-12 animate-fade-in-up-delay-1">
             {content?.hero_title_line1 || "Um gesto de amor"}
             <br />
@@ -41,7 +41,7 @@ export default function Hero({ content }: HeroProps) {
               "São 20 moradores que estão aguardando o seu gesto de amor. Ajude a manter esse ciclo de amor, DOE alimentos, medicamentos e itens de higiene pessoal. Seja Amigo da pessoa idosa."}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 animate-fade-in-up-delay-3">
+          <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3 sm:gap-4 animate-fade-in-up-delay-3">
             <a
               href="#doar"
               className="group bg-accent hover:bg-accent-light text-white px-6 py-2.5 sm:px-10 sm:py-4 rounded-full font-bold text-sm sm:text-lg transition-all hover:scale-105 shadow-2xl shadow-orange-500/30 flex items-center gap-2 sm:gap-3 justify-center"
