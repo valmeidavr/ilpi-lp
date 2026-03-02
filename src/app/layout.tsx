@@ -26,7 +26,8 @@ export const metadata: Metadata = {
     "caridade",
   ],
   icons: {
-    icon: "/favicon.svg",
+    icon: "/logo.webp",
+    apple: "/logo.webp",
   },
   openGraph: {
     title: "ILPI - Instituição de Longa Permanência para Idosos",
