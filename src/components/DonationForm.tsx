@@ -25,12 +25,15 @@ export default function DonationForm() {
         />
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2">
         <p className="font-bold text-gray-900 text-xs sm:text-sm">
-          ASS. DOS APOSENTADOS E PESIONISTAS DE VOLTA REDONDA
+          ASS. DOS APOSENTADOS E PENSIONISTAS DE VOLTA REDONDA
         </p>
         <p className="text-gray-500 text-xs">
           CNPJ: {PIX_CNPJ}
+        </p>
+        <p className="text-gray-400 text-[11px] sm:text-xs leading-relaxed max-w-sm mx-auto">
+          A Associação dos Aposentados e Pensionistas de Volta Redonda é a entidade mantenedora da ILPI João Miguel da Silva. Sua doação vai diretamente para o cuidado dos nossos idosos.
         </p>
       </div>
     </div>
