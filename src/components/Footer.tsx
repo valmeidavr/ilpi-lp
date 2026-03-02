@@ -1,8 +1,13 @@
 "use client";
 
 import { Heart, MapPin, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 
-export default function Footer() {
+interface FooterProps {
+  content?: Record<string, string>;
+}
+
+export default function Footer({ content }: FooterProps) {
   return (
     <footer id="contato" className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
@@ -10,8 +15,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white fill-white" />
+              <div className="relative w-10 h-10">
+                <Image
+                  src="/logo.webp"
+                  alt="ILPI Logo"
+                  fill
+                  className="object-contain rounded-full"
+                />
               </div>
               <div>
                 <span className="text-lg font-bold">ILPI</span>
@@ -21,8 +31,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Instituição de Longa Permanência para Idosos João Miguel da Silva
-              — desde 1971 cuidando com amor.
+              {content?.footer_description ||
+                "Instituição de Longa Permanência para Idosos João Miguel da Silva — desde 1971 cuidando com amor."}
             </p>
           </div>
 
@@ -33,21 +43,26 @@ export default function Footer() {
               <li className="flex items-start gap-2 text-gray-400 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
                 <span>
-                  Rua Epitácio Pessoa, nº 154, Dom Bosco,
-                  <br />
-                  Volta Redonda – Rio de Janeiro
+                  {content?.footer_address ||
+                    "Rua Epitácio Pessoa, nº 154, Dom Bosco, Volta Redonda – Rio de Janeiro"}
                 </span>
               </li>
               <li className="flex items-center gap-2 text-gray-400 text-sm">
                 <Phone className="w-4 h-4 flex-shrink-0 text-primary" />
-                <a href="tel:+552433385056" className="hover:text-white transition-colors">
-                  (24) 3338-5056
+                <a
+                  href={`tel:+55${(content?.footer_phone || "(24) 3338-5056").replace(/\D/g, "")}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {content?.footer_phone || "(24) 3338-5056"}
                 </a>
               </li>
               <li className="flex items-center gap-2 text-gray-400 text-sm">
                 <Mail className="w-4 h-4 flex-shrink-0 text-primary" />
-                <a href="mailto:contato@ilpi.org.br" className="hover:text-white transition-colors">
-                  contato@ilpi.org.br
+                <a
+                  href={`mailto:${content?.footer_email || "contato@ilpi.org.br"}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {content?.footer_email || "contato@ilpi.org.br"}
                 </a>
               </li>
             </ul>
@@ -83,7 +98,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://api.whatsapp.com/send/?phone=552421021901&text=Ol%C3%A1%2C+gostaria+de+me+associar%21&type=phone_number&app_absent=0"
+                  href={`https://api.whatsapp.com/send/?phone=${content?.whatsapp_number || "552421021901"}&text=Ol%C3%A1%2C+gostaria+de+me+associar%21&type=phone_number&app_absent=0`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white text-sm transition-colors"

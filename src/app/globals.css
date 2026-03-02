@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #15447d;
-  --color-primary-light: #1a5298;
-  --color-primary-dark: #0e3363;
-  --color-secondary: #2d4562;
-  --color-secondary-light: #3a5a7c;
+  --color-primary: #96904f;
+  --color-primary-light: #aba56a;
+  --color-primary-dark: #7b7640;
+  --color-secondary: #7b7640;
+  --color-secondary-light: #96904f;
   --color-accent: #FE8A00;
   --color-accent-light: #FFa333;
-  --color-warm-bg: #F0F4F8;
-  --color-warm-100: #E1E8F0;
-  --color-warm-200: #D0DAE5;
+  --color-warm-bg: #F5F4E8;
+  --color-warm-100: #ECE9D5;
+  --color-warm-200: #E3DFC3;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -93,18 +93,18 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #15447d, #FE8A00);
+  background: linear-gradient(135deg, #96904f, #FE8A00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero-gradient {
-  background: linear-gradient(170deg, #15447d 0%, #1a5298 40%, #1e5faa 65%, #15447d 100%);
+  background: linear-gradient(170deg, #96904f 0%, #aba56a 40%, #b5b074 65%, #96904f 100%);
 }
 
 .donation-gradient {
-  background: linear-gradient(135deg, #e8f1fd 0%, #d0e2fa 50%, #b8d4f8 100%);
+  background: linear-gradient(135deg, #f1ecce 0%, #f1ecce 50%, #f1ecce 100%);
 }
 
 /* Custom scrollbar */
@@ -117,10 +117,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #15447d;
+  background: #96904f;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0e3363;
+  background: #7b7640;
 }

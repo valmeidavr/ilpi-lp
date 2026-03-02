@@ -3,14 +3,21 @@
 import { Heart, Shield, Lock, Users } from "lucide-react";
 import DonationForm from "./DonationForm";
 
-export default function DonationSection() {
+interface DonationSectionProps {
+  content?: Record<string, string>;
+}
+
+export default function DonationSection({ content }: DonationSectionProps) {
+  const title = content?.donation_title || "Doe agora e transforme vidas";
+  const subtitle = content?.donation_subtitle || "Sua contribuição é essencial para manter o funcionamento da ILPI. Escolha o valor, preencha seus dados e ajude nossos idosos.";
+
   return (
     <section
       id="doar"
       className="py-16 sm:py-20 lg:py-24"
       style={{
         background:
-          "linear-gradient(135deg, #e8f1fd 0%, #d0e2fa 50%, #b8d4f8 100%)",
+          "linear-gradient(135deg, #f1ecce 0%, #f1ecce 50%, #f1ecce 100%)",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,12 +26,10 @@ export default function DonationSection() {
             Faça sua doação
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-            Doe agora e{" "}
-            <span className="gradient-text">transforme vidas</span>
+            {title}
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">
-            Sua contribuição é essencial para manter o funcionamento da ILPI.
-            Escolha o valor, preencha seus dados e ajude nossos idosos.
+            {subtitle}
           </p>
 
           {/* Social proof */}

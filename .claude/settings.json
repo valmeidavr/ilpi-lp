@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install dotenv --save-dev)",
+      "Bash(npx prisma db seed)"
+    ]
+  }
+}

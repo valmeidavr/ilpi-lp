@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,8 +14,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-primary">
-              <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-white fill-white" />
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+              <Image
+                src="/logo.webp"
+                alt="ILPI Logo"
+                fill
+                className="object-contain rounded-full"
+              />
             </div>
             <div>
               <span className="text-lg font-bold text-secondary">

@@ -2,7 +2,16 @@
 
 import { Heart } from "lucide-react";
 
-export default function Impact() {
+interface ImpactProps {
+  content?: Record<string, string>;
+}
+
+export default function Impact({ content }: ImpactProps) {
+  const title = content?.impact_title || "Sua doação faz a diferença";
+  const subtitle = content?.impact_subtitle || "Cada centavo é investido diretamente no cuidado e bem-estar dos nossos idosos. Sua contribuição mantém vivo o sonho de uma velhice digna.";
+  const ctaTitle = content?.impact_cta_title || "Imagine se cada pessoa doasse apenas R$ 20,00";
+  const ctaText = content?.impact_cta_text || "Com apenas o valor de um café por dia, você garante que um idoso tenha medicamento, comida e carinho. Não espere para fazer a diferença.";
+
   return (
     <section
       id="impacto"
@@ -14,12 +23,10 @@ export default function Impact() {
             Por que doar?
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-            Sua doação{" "}
-            <span className="gradient-text">faz a diferença</span>
+            {title}
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">
-            Cada centavo é investido diretamente no cuidado e bem-estar dos
-            nossos idosos. Sua contribuição mantém vivo o sonho de uma velhice digna.
+            {subtitle}
           </p>
         </div>
 
@@ -27,12 +34,10 @@ export default function Impact() {
         <div className="text-center">
           <div className="bg-gradient-to-r from-primary to-primary-dark rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-white">
             <h3 className="text-2xl sm:text-3xl font-bold mb-3">
-              Imagine se cada pessoa doasse apenas R$ 20,00
+              {ctaTitle}
             </h3>
             <p className="text-white/80 text-base sm:text-lg mb-6 max-w-2xl mx-auto">
-              Com apenas o valor de um café por dia, você garante que um idoso
-              tenha medicamento, comida e carinho. Não espere para fazer a
-              diferença.
+              {ctaText}
             </p>
             <a
               href="#doar"

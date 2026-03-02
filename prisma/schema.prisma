@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Lead {
+  id          String   @id @default(cuid())
+  nome        String
+  responsavel String
+  email       String
+  telefone    String
+  cnpj        String
+  site        String?
+  createdAt   DateTime @default(now())
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model SiteContent {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  src       String
+  alt       String
+  order     Int      @default(0)
+  visible   Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model Donation {
+  id            String   @id @default(cuid())
+  donorName     String
+  donorEmail    String
+  donorPhone    String
+  donorCpf      String
+  amount        Float
+  paymentMethod String
+  status        String   @default("pending")
+  createdAt     DateTime @default(now())
+}

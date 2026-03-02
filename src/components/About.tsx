@@ -21,7 +21,18 @@ const professionals = [
   { icon: Users, label: "Cuidadores" },
 ];
 
-export default function About() {
+interface AboutProps {
+  content?: Record<string, string>;
+}
+
+export default function About({ content }: AboutProps) {
+  const sectionTitle = content?.about_section_title || "Mais de 50 anos compartilhando amor";
+  const homeTitle = content?.about_home_title || "Um verdadeiro lar";
+  const homeText = content?.about_home_text;
+  const historyTitle = content?.about_history_title || "Nossa trajetória";
+  const historyText = content?.about_history_text;
+  const quote = content?.about_quote || "Envelhecer com dignidade é um direito. Compartilhar amor é a nossa missão.";
+
   return (
     <section id="sobre" className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,8 +41,7 @@ export default function About() {
             Nossa História
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-            Mais de 50 anos{" "}
-            <span className="gradient-text">distribuindo amor</span>
+            {sectionTitle}
           </h2>
           <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
         </div>
@@ -39,22 +49,31 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left column - Story */}
           <div className="space-y-6">
-            <div className="bg-warm-bg rounded-2xl p-6 sm:p-8 border border-blue-100">
+            <div className="bg-warm-bg rounded-2xl p-6 sm:p-8 border border-warm-200">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Heart className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Uma missão de amor
+                    {homeTitle}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-                    A ILPI é uma instituição sem fins lucrativos, que atende
-                    idosos que estejam precisando de abrigo e de cuidados. Com{" "}
-                    <strong className="text-gray-800">20 moradores</strong> e um
-                    quadro de funcionários especializados, a ILPI tem uma única
-                    proposta:{" "}
-                    <strong className="text-primary">distribuir amor</strong>.
+                    {homeText || (
+                      <>
+                        A ILPI João Miguel da Silva é uma instituição sem fins
+                        lucrativos dedicada ao acolhimento de pessoas idosas que
+                        necessitam de abrigo, conforto e cuidado. Mais do que
+                        oferecer um espaço seguro, a instituição se tornou um
+                        verdadeiro lar — um lugar onde cada história é respeitada,
+                        cada vida é valorizada e cada gesto de carinho faz a
+                        diferença. Hoje, abriga{" "}
+                        <strong className="text-gray-800">20 moradores</strong> e
+                        conta com uma equipe multidisciplinar especializada, cuja
+                        missão é simples e profunda:{" "}
+                        <strong className="text-primary">compartilhar o amor</strong>.
+                      </>
+                    )}
                   </p>
                 </div>
               </div>
@@ -67,20 +86,28 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Nossa trajetória
+                    {historyTitle}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-                    A entidade surgiu em{" "}
-                    <strong className="text-gray-800">1971</strong>, com o nome
-                    Asilo da Sociedade São Vicente de Paulo (SSVP), mais
-                    conhecido como Asilo Dom Bosco. Por 40 anos, mantiveram sua
-                    obra e, em <strong className="text-gray-800">2012</strong>,
-                    o asilo – agora rebatizado de{" "}
-                    <strong className="text-gray-800">
-                      Instituição de Longa Permanência para Idosos João Miguel
-                      da Silva
-                    </strong>{" "}
-                    – recebeu o apoio da AAP-VR.
+                    {historyText || (
+                      <>
+                        A trajetória da instituição começou em{" "}
+                        <strong className="text-gray-800">1971</strong>, quando foi
+                        fundada com o nome Asilo da Sociedade São Vicente de Paulo,
+                        sendo carinhosamente conhecida pela comunidade como Asilo Dom
+                        Bosco. Ao longo de mais de cinco décadas, tornou-se símbolo
+                        de cuidado, respeito e solidariedade. Em{" "}
+                        <strong className="text-gray-800">2012</strong>, foi
+                        rebatizada como{" "}
+                        <strong className="text-gray-800">
+                          Instituição de Longa Permanência João Miguel da Silva
+                        </strong>
+                        , em homenagem a um grande colaborador que, por meio de seu
+                        trabalho voluntário e generosidade, deixou um legado de
+                        dedicação e amor — valores que continuam vivos em cada
+                        detalhe da instituição.
+                      </>
+                    )}
                   </p>
                 </div>
               </div>
@@ -88,8 +115,7 @@ export default function About() {
 
             <blockquote className="border-l-4 border-primary pl-6 py-2">
               <p className="text-lg sm:text-xl italic text-gray-700 font-medium">
-                &ldquo;Envelhecer com dignidade é um direito. Garantir isso é o
-                nosso dever e a nossa alegria.&rdquo;
+                &ldquo;{quote}&rdquo;
               </p>
             </blockquote>
           </div>
