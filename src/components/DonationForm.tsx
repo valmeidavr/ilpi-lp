@@ -24,15 +24,6 @@ export default function DonationForm() {
           className="object-contain"
         />
       </div>
-
-      <div className="space-y-2">
-        <p className="font-bold text-gray-900 text-xs sm:text-sm">
-          APOIO ASS. DOS APOSENTADOS E PENSIONISTAS DE VOLTA REDONDA
-        </p>
-        <p className="text-gray-500 text-xs">
-          CNPJ: {PIX_CNPJ}
-        </p>
-      </div>
     </div>
   );
 }
