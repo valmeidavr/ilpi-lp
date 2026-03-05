@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 
-const PIX_CNPJ = "29.292.752/0013-99";
-
 export default function DonationForm() {
   return (
     <div className="space-y-6 text-center">
