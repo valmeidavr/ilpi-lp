@@ -59,10 +59,10 @@ export default function Footer({ content }: FooterProps) {
               <li className="flex items-center gap-2 text-gray-400 text-sm">
                 <Mail className="w-4 h-4 flex-shrink-0 text-primary" />
                 <a
-                  href={`mailto:${content?.footer_email || "contato@ilpi.org.br"}`}
+                  href={`mailto:${content?.footer_email || "Ilpi@aapvr.com.br"}`}
                   className="hover:text-white transition-colors"
                 >
-                  {content?.footer_email || "contato@ilpi.org.br"}
+                  {content?.footer_email || "Ilpi@aapvr.com.br"}
                 </a>
               </li>
             </ul>
@@ -133,7 +133,7 @@ export default function Footer({ content }: FooterProps) {
             reservados.
           </p>
           <p className="text-gray-600 text-xs mt-2">
-            Instituição sem fins lucrativos — CNPJ: 00.000.000/0001-00
+            Instituição sem fins lucrativos
           </p>
         </div>
       </div>
