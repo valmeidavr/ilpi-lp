@@ -32,9 +32,6 @@ export default function DonationForm() {
         <p className="text-gray-500 text-xs">
           CNPJ: {PIX_CNPJ}
         </p>
-        <p className="text-gray-400 text-[11px] sm:text-xs leading-relaxed max-w-sm mx-auto">
-          O PIX é recebido pela Ass. dos Aposentados e Pensionistas de Volta Redonda, que apoia a ILPI João Miguel da Silva no cuidado dos nossos idosos.
-        </p>
       </div>
     </div>
   );
